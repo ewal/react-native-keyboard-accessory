@@ -165,8 +165,7 @@ class KeyboardAccessoryView extends Component {
           style,
           {
             opacity: (isKeyboardVisible || alwaysVisible ? visibleOpacity : hiddenOpacity),
-            bottom: keyboardHeight - bumperHeight - (applySafeArea ? 20 : 0),
-            height: accessoryHeight + bumperHeight + (applySafeArea ? (!isKeyboardVisible ? 20 : -10) : 0),
+            bottom: keyboardHeight - (applySafeArea ? 20 : 0),
           }
         ]}>
           <View onLayout={this.handleChildrenLayout}>

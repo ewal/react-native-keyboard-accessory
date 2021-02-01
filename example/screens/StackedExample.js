@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import { StyleSheet, View, TextInput, Button, ScrollView } from "react-native";
+import { StyleSheet, View, TextInput, Button, ScrollView, Text } from "react-native";
 
 import { KeyboardAccessoryView } from "../react-native-keyboard-accessory";
 
-class ViewExample extends Component {
+class StackedExample extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -15,15 +15,10 @@ class ViewExample extends Component {
               this.props.navigation.navigate("NavigationViewExample");
             }}
           />
-          <Button
-            title="Go to Stacked Example"
-            onPress={() => {
-              this.props.navigation.navigate("StackedExample");
-            }}
-          />
         </ScrollView>
         <KeyboardAccessoryView alwaysVisible={true} androidAdjustResize>
           {({ isKeyboardVisible }) => (
+            <View>
             <View style={styles.textInputView}>
               <TextInput
                 placeholder="Write your message"
@@ -39,6 +34,19 @@ class ViewExample extends Component {
                 />
               )}
             </View>
+            <View style={styles.subView}>
+              <Button
+                style={styles.textInputButton}
+                title="Action 1"
+                onPress={() => {}}
+              />
+              <Button
+                style={styles.textInputButton}
+                title="Action 2"
+                onPress={() => {}}
+              />
+              </View>
+            </View>
           )}
         </KeyboardAccessoryView>
       </View>
@@ -46,8 +54,8 @@ class ViewExample extends Component {
   }
 }
 
-ViewExample.navigationOptions = {
-  title: "View Example",
+StackedExample.navigationOptions = {
+  title: "Stacked Example",
 };
 
 const styles = StyleSheet.create({
@@ -73,6 +81,9 @@ const styles = StyleSheet.create({
   textInputButton: {
     flexShrink: 1,
   },
+  subView: {
+    flexDirection: "row"
+  },
 });
 
-export default ViewExample;
+export default StackedExample;
